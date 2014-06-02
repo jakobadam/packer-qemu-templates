@@ -1,0 +1,52 @@
+{
+    "builders":
+    [
+        {
+            "name": "ubuntu",
+
+            "type": "qemu",
+            "format": "qcow2",
+            "disk_size": 100000,
+            "output_directory": "output",
+
+            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
+            "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+            "iso_checksum_type": "md5",
+
+            "headless": false,
+            "accelerator": "kvm",
+            "http_directory": "http",
+
+            "ssh_username": "ubuntu",
+            "ssh_password": "ubuntu",
+
+            "boot_wait": "10s",
+            "shutdown_command": "echo 'ubuntu'|sudo -S shutdown -P now",
+            "boot_command": [
+                "<esc><esc><enter><wait>",
+                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+                "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+                "hostname={{ .Name }} ",
+                "fb=false debconf/frontend=noninteractive ",
+                "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+                "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+                "initrd=/install/initrd.gz -- <enter>"
+            ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "override": {
+                "ubuntu": {
+                    "scripts": [
+                        "../script/ubuntu/update.sh",
+                        "../script/ubuntu/network.sh"
+                    ],
+                    "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+                }
+            }
+        }
+    ]
+}
