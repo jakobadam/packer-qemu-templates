@@ -1,0 +1,40 @@
+{
+    "builders": [
+        {
+            "type": "qemu",
+            "format":"qcow2",
+            "iso_url": "../../iso/windows-2012R2-standard-amd64.iso",
+            "iso_checksum_type": "md5",
+            "iso_checksum": "fb101ed6d7328aca6473158006630a9d",
+            "headless": false,
+            "boot_wait": "2m",
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
+            "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+            "disk_size": 61440,
+
+            "floppy_files": [
+                "./Autounattend.xml",
+
+                "../../scripts/install-cygwin-sshd.bat",
+                "../../scripts/enable-admin.bat",
+                "../../scripts/vagrant-ssh.bat",
+
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.PDB",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.SYS",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.INF",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.CAT",
+
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.PDB",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.SYS",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.INF",
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.CAT"
+            ],
+            "disk_interface":"virtio",
+            "qemuargs": [
+                ["-m", "4048m"],
+                ["-smp", 2]
+            ]
+        }
+    ]
+}
