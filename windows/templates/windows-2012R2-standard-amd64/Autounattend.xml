@@ -126,62 +126,24 @@
 
       <FirstLogonCommands>
 
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
-          <Description>Set Execution Policy 64 Bit</Description>
-          <Order>1</Order>
-          <RequiresUserInput>true</RequiresUserInput>
-        </SynchronousCommand>
+        <!-- <SynchronousCommand wcm:action="add"> -->
+        <!--   <CommandLine>cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine> -->
+        <!--   <Description>Set Execution Policy 64 Bit</Description> -->
+        <!--   <Order>1</Order> -->
+        <!--   <RequiresUserInput>true</RequiresUserInput> -->
+        <!-- </SynchronousCommand> -->
+
+        <!-- <SynchronousCommand wcm:action="add"> -->
+        <!--   <CommandLine>C:\Windows\SysWOW64\cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine> -->
+        <!--   <Description>Set Execution Policy 32 Bit</Description> -->
+        <!--   <Order>2</Order> -->
+        <!--   <RequiresUserInput>true</RequiresUserInput> -->
+        <!-- </SynchronousCommand> -->
 
         <SynchronousCommand wcm:action="add">
-          <CommandLine>C:\Windows\SysWOW64\cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
-          <Description>Set Execution Policy 32 Bit</Description>
-          <Order>2</Order>
-          <RequiresUserInput>true</RequiresUserInput>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v HideFileExt /t REG_DWORD /d 0 /f</CommandLine>
-          <Order>16</Order>
-          <Description>Show file extensions in Explorer</Description>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\Console /v QuickEdit /t REG_DWORD /d 1 /f</CommandLine>
-          <Order>17</Order>
-          <Description>Enable QuickEdit mode</Description>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateFileSizePercent /t REG_DWORD /d 0 /f</CommandLine>
-          <Order>20</Order>
-          <Description>Zero Hibernation File</Description>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateEnabled /t REG_DWORD /d 0 /f</CommandLine>
-          <Order>21</Order>
-          <Description>Disable Hibernation Mode</Description>
-        </SynchronousCommand>
-
-        <!-- enable RDP:http://technet.microsoft.com/en-us/library/cc782195(v=ws.10).aspx -->
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>%SystemRoot%\System32\reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f</CommandLine>
-          <Description>Enable RDP</Description>
+          <CommandLine>cmd.exe /c a:\configure.bat</CommandLine>
+          <Description>Run configure script</Description>
           <Order>22</Order>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>cmd.exe /c netsh advfirewall firewall set rule group="remote desktop" new enable=Yes</CommandLine>
-          <Description>Allow RDP through firewall</Description>
-          <Order>23</Order>
-          <RequiresUserInput>true</RequiresUserInput>
-        </SynchronousCommand>
-
-        <SynchronousCommand wcm:action="add">
-          <CommandLine>cmd.exe /c a:\install-cygwin-sshd.bat</CommandLine>
-          <Description>Install Cygwin</Description>
-          <Order>24</Order>
         </SynchronousCommand>
 
       </FirstLogonCommands>
