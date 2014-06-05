@@ -21,7 +21,7 @@
             ],
             "disk_interface":"virtio",
             "qemuargs": [
-                ["-m", "4048m"],
+                ["-m", "4096m"],
                 ["-smp", 2]
             ]
         }
