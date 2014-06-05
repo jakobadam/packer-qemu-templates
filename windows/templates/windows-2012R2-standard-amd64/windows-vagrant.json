@@ -14,27 +14,10 @@
             "disk_size": 61440,
 
             "floppy_files": [
+                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/*",
+                "../../scripts/*",
                 "./Autounattend.xml",
-
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.PDB",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.SYS",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.INF",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/VIOSTOR.CAT",
-
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.PDB",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.SYS",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.INF",
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/NETKVM.CAT",
-
-                "configure.bat",
-
-                "../../scripts/enable-admin.bat",
-                "../../scripts/firewall-open-ping.bat",
-                "../../scripts/firewall-open-smb.bat",
-                "../../scripts/install-cygwin-sshd.bat",
-                "../../scripts/vagrant-ssh.bat",
-                "../../scripts/disable-hibernate.bat"
-
+                "configure.bat"
             ],
             "disk_interface":"virtio",
             "qemuargs": [
