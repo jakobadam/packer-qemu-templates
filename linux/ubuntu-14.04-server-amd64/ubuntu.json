@@ -41,8 +41,8 @@
             "override": {
                 "ubuntu": {
                     "scripts": [
-                        "../script/ubuntu/update.sh",
-                        "../script/ubuntu/network.sh"
+                        "../scripts/ubuntu/update.sh",
+                        "../scripts/ubuntu/network.sh"
                     ],
                     "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
                 }
