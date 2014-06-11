@@ -17,14 +17,14 @@
             "accelerator": "kvm",
             "http_directory": "http",
 
-            "ssh_username": "ubuntu",
-            "ssh_password": "ubuntu",
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
 
             "boot_wait": "10s",
-            "shutdown_command": "echo 'ubuntu'|sudo -S shutdown -P now",
+            "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
             "boot_command": [
                 "<esc><esc><enter><wait>",
-                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
                 "fb=false debconf/frontend=noninteractive ",
@@ -38,14 +38,15 @@
     "provisioners": [
         {
             "type": "shell",
+            "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
             "override": {
                 "ubuntu": {
                     "scripts": [
                         "../scripts/ubuntu/update.sh",
                         "../scripts/ubuntu/packages.sh",
-                        "../scripts/ubuntu/network.sh"
-                    ],
-                    "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+                        "../scripts/ubuntu/network.sh",
+                        "../scripts/vagrant.sh"
+                    ]
                 }
             }
         }
