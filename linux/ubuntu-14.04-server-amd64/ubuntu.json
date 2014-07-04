@@ -1,13 +1,18 @@
 {
+    "variables": {
+        "user": null,
+        "password": null
+    },
+    
     "builders":
     [
         {
-            "name": "ubuntu",
+            "name": "ubuntu-cabo",
 
             "type": "qemu",
             "format": "qcow2",
             "disk_size": 100000,
-            "output_directory": "ubuntu-output",
+            "output_directory": "ubuntu-cabo-output",
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
@@ -17,11 +22,12 @@
             "accelerator": "kvm",
             "http_directory": "http",
 
-            "ssh_username": "ubuntu",
-            "ssh_password": "ubuntu",
-
             "boot_wait": "10s",
-            "shutdown_command": "echo 'ubuntu'|sudo -S shutdown -P now",
+
+            "ssh_username": "{{user `user`}}",
+            "ssh_password": "{{user `password`}}",
+
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
             "boot_command": [
                 "<esc><esc><enter><wait>",
                 "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
@@ -30,6 +36,10 @@
                 "fb=false debconf/frontend=noninteractive ",
                 "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
                 "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+                "passwd/user-fullname={{user `user`}} ",
+                "passwd/user-password={{user `password`}} ",
+                "passwd/user-password-again={{user `password`}} ",
+                "passwd/username={{user `user`}} ",
                 "initrd=/install/initrd.gz -- <enter>"
             ]
         }
@@ -39,13 +49,13 @@
         {
             "type": "shell",
             "override": {
-                "ubuntu": {
+                "ubuntu-cabo": {
                     "scripts": [
                         "../scripts/ubuntu/update.sh",
                         "../scripts/ubuntu/packages.sh",
                         "../scripts/ubuntu/network.sh"
                     ],
-                    "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+                    "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
                 }
             }
         }
