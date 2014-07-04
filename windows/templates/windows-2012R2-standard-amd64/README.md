@@ -3,10 +3,11 @@ Windows 2012 R2 Standard Edition x64 (with no configuration management tools)
 Machine Specific
 ----------------
 
-Virtio drivers are loaded on startup<br />
-Box size around 4 GB <br/>
-Configured as 2 CPU and 4 GB memory by default <br/>
-No updates or services packs applied <br/>
+Virtio drivers are loaded on startup
+Box size around 4 GB
+Configured as 2 CPU and 4 GB memory by default
+No updates or services packs applied 
+Firewall is disabled
 
 Register and download the Windows install iso from:
 http://technet.microsoft.com/en-US/evalcenter/dn205286.aspx It can be
