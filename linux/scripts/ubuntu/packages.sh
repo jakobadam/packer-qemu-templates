@@ -1,1 +1,11 @@
-apt-get -y install emacs24-nox vim-nox tcpdump htop slurm nmon curl unzip
+PACKAGES="
+curl
+emacs24-nox
+htop
+nmon
+slurm
+tcpdump
+unzip
+vim-nox
+"
+apt-get -y install $PACKAGES
