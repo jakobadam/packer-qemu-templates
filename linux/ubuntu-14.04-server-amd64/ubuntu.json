@@ -12,7 +12,7 @@
             "type": "qemu",
             "format": "qcow2",
             "disk_size": 100000,
-            "output_directory": "ubuntu-cabo-output",
+            "output_directory": "output-ubuntu",
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
