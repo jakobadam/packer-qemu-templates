@@ -1,6 +1,11 @@
-REM Delete old scheduled task, execute step2, and reboot
-schtasks /delete /tn "RDS Install Step 2" -f
+:: Deleting old scheduled task
+schtasks /delete /tn "Install RDS Step 2" -f
 
-powershell.exe -File %~dp0rds-install-step2.ps1
-cmd.exe /c %~dp0install-cygwin-sshd.bat
-shutdown /r /t 10 /f /c "RDS Install Shutdown Step 2 Finished"
+:: Schedule next step
+schtasks /create /tn "Install RDS Step 3" /tr %~dp0install-rds-step3.bat /sc onlogon
+
+:: Install RDS Step 2
+powershell.exe -File %~dp0install-rds-step2.ps1
+
+:: RDS Install is doing a restart
+
