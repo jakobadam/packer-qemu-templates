@@ -10,4 +10,3 @@ Install-ADDSForest -DomainName $domain -SafeModeAdministratorPassword $password 
 $fqdn = "rds.example.com"
 New-RDSessionDeployment -ConnectionBroker $fqdn -WebAccessServer $fqdn -SessionHost $fqdn
 
-Restart-Computer
