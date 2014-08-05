@@ -8,6 +8,8 @@ Install-WindowsFeature -Name RSAT-RDS-Tools
 Install-WindowsFeature -Name AD-Domain-Services
 
 Rename-Computer -NewName "rds"
+
+# Set password for user administrator
 net user administrator "V@grant" /passwordreq:yes
 
 

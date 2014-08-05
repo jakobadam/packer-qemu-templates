@@ -9,4 +9,3 @@ Install-ADDSForest -DomainName $domain -SafeModeAdministratorPassword $password 
 # Create RDS deployment on this server
 $fqdn = "rds.example.com"
 New-RDSessionDeployment -ConnectionBroker $fqdn -WebAccessServer $fqdn -SessionHost $fqdn
-
