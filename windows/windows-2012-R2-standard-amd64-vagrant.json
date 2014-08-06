@@ -16,7 +16,7 @@
 
             "floppy_files": [
                 "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
-                "scripts/*",
+                "scripts/common/*",
                 "scripts/windows-2012-standard-amd64-vagrant/*"
             ],
             "disk_interface":"virtio",
