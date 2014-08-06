@@ -1,7 +1,7 @@
 {
     "builders": [
         {
-            "name": "windows-2012R2",
+            "name": "windows-2012R2-vagrant",
             "type": "qemu",
             "format":"qcow2",
             "iso_url": "https://dl.dropboxusercontent.com/u/835753/windows-2012R2-standard-amd64.iso",
@@ -9,20 +9,19 @@
             "iso_checksum": "fb101ed6d7328aca6473158006630a9d",
             "headless": false,
             "boot_wait": "2m",
-            "ssh_username": "Administrator",
-            "ssh_password": "Administrator",
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
             "disk_size": 61440,
 
             "floppy_files": [
-                "../../drivers/virtio-win-0.1-74/WIN7/AMD64/*",
-                "../../scripts/*",
-                "Autounattend.xml",
-                "configure.bat"
+                "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
+                "scripts/*",
+                "scripts/windows-2012-standard-amd64-vagrant/*"
             ],
             "disk_interface":"virtio",
             "qemuargs": [
-                ["-m", "4096m"],
+                ["-m", "8192m"],
                 ["-smp", 2]
             ]
         }

@@ -114,7 +114,8 @@
   <settings pass="oobeSystem">
     <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 
-      <!-- logon this user automatically -->
+      <!-- logon this user automatically 
+           which runs first logon commands -->
       <AutoLogon>
         <Password>
           <Value>vagrant</Value>
@@ -127,7 +128,7 @@
       <FirstLogonCommands>
 
         <SynchronousCommand wcm:action="add">
-          <CommandLine>cmd.exe /c a:\configure.bat</CommandLine>
+          <CommandLine>cmd /c a:\configure.bat</CommandLine>
           <Description>Run configure script</Description>
           <Order>1</Order>
         </SynchronousCommand>
@@ -145,10 +146,11 @@
       </OOBE>
 
       <UserAccounts>
-        <AdministratorPassword>
-          <Value></Value>
-          <PlainText>true</PlainText>
-        </AdministratorPassword>
+        <!-- admin account with no password -->
+        <!-- <AdministratorPassword> -->
+        <!--   <Value></Value> -->
+        <!--   <PlainText>true</PlainText> -->
+        <!-- </AdministratorPassword> -->
 
         <LocalAccounts>
           <LocalAccount wcm:action="add">
