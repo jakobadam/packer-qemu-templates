@@ -1,18 +1,12 @@
 {
-    "variables": {
-        "user": null,
-        "password": null
-    },
-    
     "builders":
     [
         {
-            "name": "ubuntu-cabo",
+            "name": "ubuntu-14.04-server-amd64-vagrant",
 
             "type": "qemu",
             "format": "qcow2",
             "disk_size": 100000,
-            "output_directory": "output-ubuntu",
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
@@ -22,24 +16,19 @@
             "accelerator": "kvm",
             "http_directory": "http",
 
+            "ssh_username": "vagrant",
+            "ssh_password": "vagrant",
+
             "boot_wait": "10s",
-
-            "ssh_username": "{{user `user`}}",
-            "ssh_password": "{{user `password`}}",
-
-            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+            "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
             "boot_command": [
                 "<esc><esc><enter><wait>",
-                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
                 "fb=false debconf/frontend=noninteractive ",
                 "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
                 "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-                "passwd/user-fullname={{user `user`}} ",
-                "passwd/user-password={{user `password`}} ",
-                "passwd/user-password-again={{user `password`}} ",
-                "passwd/username={{user `user`}} ",
                 "initrd=/install/initrd.gz -- <enter>"
             ]
         }
@@ -48,14 +37,15 @@
     "provisioners": [
         {
             "type": "shell",
+            "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
             "override": {
-                "ubuntu-cabo": {
+                "ubuntu-14.04-server-amd64-vagrant": {
                     "scripts": [
-                        "../scripts/ubuntu/update.sh",
-                        "../scripts/ubuntu/packages.sh",
-                        "../scripts/ubuntu/network.sh"
-                    ],
-                    "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+                        "scripts/update.sh",
+                        "scripts/packages.sh",
+                        "scripts/network.sh",
+                        "scripts/vagrant.sh"
+                    ]
                 }
             }
         }
