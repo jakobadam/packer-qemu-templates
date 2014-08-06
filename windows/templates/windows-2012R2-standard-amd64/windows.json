@@ -9,8 +9,8 @@
             "iso_checksum": "fb101ed6d7328aca6473158006630a9d",
             "headless": false,
             "boot_wait": "2m",
-            "ssh_username": "administrator",
-            "ssh_password": "administrator",
+            "ssh_username": "Administrator",
+            "ssh_password": "Administrator",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
             "disk_size": 61440,
 
@@ -22,7 +22,7 @@
             ],
             "disk_interface":"virtio",
             "qemuargs": [
-                ["-m", "8192m"],
+                ["-m", "4096m"],
                 ["-smp", 2]
             ]
         }

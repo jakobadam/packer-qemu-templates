@@ -82,8 +82,8 @@
           <WillShowUI>OnError</WillShowUI>
         </ProductKey>
         <AcceptEula>true</AcceptEula>
-        <FullName>Vagrant</FullName>
-        <Organization>Vagrant</Organization>
+        <FullName>Admin</FullName>
+        <Organization>Admin</Organization>
       </UserData>
     </component>
   </settings>
@@ -118,11 +118,11 @@
            which runs first logon commands -->
       <AutoLogon>
         <Password>
-          <Value>administrator</Value>
+          <Value>Administrator</Value>
           <PlainText>true</PlainText>
         </Password>
         <Enabled>true</Enabled>
-        <Username>administrator</Username>
+        <Username>Administrator</Username>
       </AutoLogon>
 
       <FirstLogonCommands>
@@ -148,22 +148,10 @@
       <UserAccounts>
 
         <AdministratorPassword>
-          <Value>administrator</Value>
+          <Value>Administrator</Value>
           <PlainText>true</PlainText>
         </AdministratorPassword>
 
-        <!-- <LocalAccounts> -->
-        <!--   <LocalAccount wcm:action="add"> -->
-        <!--     <Password> -->
-        <!--       <Value>vagrant</Value> -->
-        <!--       <PlainText>true</PlainText> -->
-        <!--     </Password> -->
-        <!--     <Group>administrators</Group> -->
-        <!--     <DisplayName>Vagrant</DisplayName> -->
-        <!--     <Name>vagrant</Name> -->
-        <!--     <Description>Vagrant User</Description> -->
-        <!--   </LocalAccount> -->
-        <!-- </LocalAccounts> -->
       </UserAccounts>
 
       <RegisteredOwner/>

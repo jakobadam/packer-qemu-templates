@@ -9,26 +9,31 @@ Machine Specific
 * No updates or services packs applied 
 * Firewall is disabled
 * RDP enabled
-* Local Administrator account enabled
 * Powershell is installed with Remote Execution policy is set to unrestricted
 
 Register and download the Windows install iso from:
 http://technet.microsoft.com/en-US/evalcenter/dn205286.aspx The OS can be
 evaluated for 180-days.
 
+There are two templates. One for vagrant (windows-vagrant.json) and on
+without (windows.json).
+
 Authentication
 --------------
+Vagrant machine:
 User: vagrant
 Password: vagrant
 
 The vagrant insecure public key is deployed for SSH access.
+
+No-Vagrant machine:
+User: Administrator
+Password: Administrator
 
 Software Pre-installed
 ----------------------
 The following software is installed and pre-configured:
 
 * Openssh (via Cygwin)
-* Git (via Cygwin)
-* Curl and Wget (via Cygwin)
 
 
