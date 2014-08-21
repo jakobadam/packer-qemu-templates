@@ -1,4 +1,9 @@
 {
+    "variables": {
+        "password": "Administr@tor",
+        "disk_size": "61440"
+    },
+    
     "builders": [
         {
             "name": "windows-2012R2",
@@ -12,7 +17,7 @@
             "ssh_username": "Administrator",
             "ssh_password": "Administrator",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-            "disk_size": 61440,
+            "disk_size": "{{ user `disk_size`}}",
 
             "floppy_files": [
                 "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
@@ -24,6 +29,13 @@
                 ["-m", "4096m"],
                 ["-smp", 2]
             ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": ["net user Administrator {{ user `password`}}"]
         }
     ]
 }
