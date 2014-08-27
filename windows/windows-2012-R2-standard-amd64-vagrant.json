@@ -5,18 +5,20 @@
 
     "builders": [
         {
-            "name": "windows-2012R2-vagrant",
             "type": "qemu",
+            "name": "windows-2012R2-vagrant",
             "format":"qcow2",
-            "iso_url": "https://dl.dropboxusercontent.com/u/835753/windows-2012R2-standard-amd64.iso",
+            "accelerator": "kvm",
+            "disk_size": "{{ user `disk_size`}}",
+
+            "iso_url": "http://care.dlservice.microsoft.com/dl/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_SERVER_EVAL_EN-US-IR3_SSS_X64FREE_EN-US_DV9.ISO",
             "iso_checksum_type": "md5",
-            "iso_checksum": "fb101ed6d7328aca6473158006630a9d",
-            "headless": false,
+            "iso_checksum": "5b5e08c490ad16b59b1d9fab0def883a",
+
             "boot_wait": "2m",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-            "disk_size": "{{ user `disk_size`}}",
 
             "floppy_files": [
                 "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
