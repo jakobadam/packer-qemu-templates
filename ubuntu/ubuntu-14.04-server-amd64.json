@@ -1,7 +1,8 @@
 {
     "variables": {
         "user": null,
-        "password": null
+        "password": null,
+        "disk_size": 100000
     },
     
     "builders":
@@ -11,7 +12,7 @@
             "name": "ubuntu-14.04-server-amd64",
             "format": "qcow2",
             "accelerator": "kvm",
-            "disk_size": 100000,
+            "disk_size": "{{ user `disk_size`}}",
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
