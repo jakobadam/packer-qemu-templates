@@ -6,18 +6,20 @@
     
     "builders": [
         {
-            "name": "windows-2012R2",
             "type": "qemu",
+            "name": "windows-2012R2",
             "format":"qcow2",
+            "accelerator": "kvm",
+            "disk_size": "{{ user `disk_size`}}",
+
             "iso_url": "https://dl.dropboxusercontent.com/u/835753/windows-2012R2-standard-amd64.iso",
             "iso_checksum_type": "md5",
             "iso_checksum": "fb101ed6d7328aca6473158006630a9d",
-            "headless": false,
+
             "boot_wait": "2m",
             "ssh_username": "Administrator",
             "ssh_password": "Administrator",
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-            "disk_size": "{{ user `disk_size`}}",
 
             "floppy_files": [
                 "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
