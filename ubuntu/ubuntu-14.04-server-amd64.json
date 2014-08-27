@@ -7,26 +7,23 @@
     "builders":
     [
         {
-            "name": "ubuntu-14.04-server-amd64",
-
             "type": "qemu",
+            "name": "ubuntu-14.04-server-amd64",
             "format": "qcow2",
+            "accelerator": "kvm",
             "disk_size": 100000,
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
             "iso_checksum_type": "md5",
 
-            "headless": false,
-            "accelerator": "kvm",
             "http_directory": "http",
 
             "boot_wait": "10s",
-
             "ssh_username": "{{user `user`}}",
             "ssh_password": "{{user `password`}}",
-
             "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+
             "boot_command": [
                 "<esc><esc><enter><wait>",
                 "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
