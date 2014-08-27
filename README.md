@@ -9,14 +9,14 @@ Go into the relevant template directory and run packer build on
 the relevant json file.
 
 ```bash
-cd windows
-packer build windows-2012-R2-standard-amd64-vagrant.json
+$ cd windows
+$ packer build windows-2012-R2-standard-amd64-vagrant.json
 ```
 
 Reuse downloaded isos accross templates:
 
 ```bash
-export PACKER_CACHE_DIR=~/packer-qemu-templates/iso
+$ export PACKER_CACHE_DIR=~/packer-qemu-templates/iso
 ```
 
 ##Acknowledgements
