@@ -7,10 +7,7 @@
 * RDP enabled
 * Powershell is installed with Remote Execution policy is set to unrestricted
 
-In order to use your own windows iso you can register and download the
-Windows install iso from:
-http://technet.microsoft.com/en-US/evalcenter/dn205286.aspx The OS can
-be evaluated for 180-days.
+The OS can be evaluated for 180-days. http://technet.microsoft.com/en-US/evalcenter/dn205286.aspx 
 
 ### Quick Start
 
