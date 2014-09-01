@@ -1,6 +1,7 @@
 {
     "variables": {
-        "disk_size": 61440
+        "disk_size": 61440,
+        "password": "vagrant"
     },
 
     "builders": [
@@ -29,6 +30,26 @@
             "qemuargs": [
                 ["-m", "4096m"],
                 ["-smp", 2]
+            ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": ["net user vagrant {{ user `password`}}"]
+        },
+
+        {
+            "type": "shell",
+            "remote_path": "/cygdrive/c/Windows/Temp/script.bat",
+            "execute_command": "cmd /c C:/Windows/Temp/script.bat",
+            "scripts": [
+                "scripts/enable-rdp.bat",
+                "scripts/disable-hibernate.bat",
+                "scripts/execution-policy-unrestricted.bat",
+                "scripts/unlimited-password-expiration.bat",
+                "scripts/vagrant-ssh.bat"
             ]
         }
     ]
