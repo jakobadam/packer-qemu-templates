@@ -12,7 +12,7 @@ The OS can be evaluated for 180-days. http://technet.microsoft.com/en-US/evalcen
 ### Quick Start
 
 ```bash
-packer build windows-2012-R2-standard-amd64.json
+$ packer build windows-2012-R2-standard-amd64.json
 ```
 
 ### Windows 2012 R2 Standard 
@@ -23,8 +23,8 @@ packer build windows-2012-R2-standard-amd64.json
 Alter the admin password and the disk size:
 
 ```
-read -p 'Enter password: ' -s password
-packer build -var "disk_size=61440" -var "password=$password" windows-2012-R2-standard-amd64.json
+$ read -p 'Enter password: ' -s password
+$ packer build -var "disk_size=61440" -var "password=$password" windows-2012-R2-standard-amd64.json
 ```
 
 *NOTE*: Password strength requirements are pretty harsh
