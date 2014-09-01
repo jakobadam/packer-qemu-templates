@@ -22,9 +22,9 @@
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
 
             "floppy_files": [
-                "drivers/virtio-win-0.1-74/WIN7/AMD64/*",
-                "scripts/common/*",
-                "scripts/windows-2012-standard-amd64/*"
+                "floppy/drivers/virtio-win-0.1-74/WIN7/AMD64/*",
+                "floppy/common/*",
+                "floppy/windows-2012-standard-amd64/*"
             ],
             "disk_interface":"virtio",
             "qemuargs": [
@@ -45,10 +45,10 @@
             "remote_path": "/cygdrive/c/Windows/Temp/script.bat",
             "execute_command": "cmd /c C:/Windows/Temp/script.bat",
             "scripts": [
-                "scripts/common/enable-rdp.bat",
-                "scripts/common/disable-hibernate.bat",
-                "scripts/common/execution-policy-unrestricted.bat",
-                "scripts/common/unlimited-password-expiration.bat"
+                "scripts/enable-rdp.bat",
+                "scripts/disable-hibernate.bat",
+                "scripts/execution-policy-unrestricted.bat",
+                "scripts/unlimited-password-expiration.bat"
             ]
         }
     ]
