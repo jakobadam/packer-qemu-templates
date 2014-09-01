@@ -1,7 +1,7 @@
 {
     "variables": {
-        "user": null,
-        "password": null,
+        "user": "adminubuntu",
+        "password": "adminubuntu",
         "disk_size": 100000
     },
     
