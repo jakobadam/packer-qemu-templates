@@ -1,7 +1,7 @@
 ##Introduction
 
 The packer-qemu-images is a project that provides easy building of
-relevant images in the qemu format.
+relevant images in the QEMU format.
 
 ##Usage
 
