@@ -33,7 +33,7 @@ http://technet.microsoft.com/en-us/library/cc786468%28v=ws.10%29.aspx
 ### Windows 2012 R2 Standard Vagrant
 
 * User vagrant
-* Default password vagrant
+* Default password V@grant
 * Vagrant *insecure* public key is deployed for SSH access.
 
 
