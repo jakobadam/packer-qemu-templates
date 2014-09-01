@@ -46,7 +46,6 @@
             "execute_command": "cmd /c C:/Windows/Temp/script.bat",
             "scripts": [
                 "scripts/enable-rdp.bat",
-                "scripts/disable-hibernate.bat",
                 "scripts/execution-policy-unrestricted.bat",
                 "scripts/unlimited-password-expiration.bat"
             ]
