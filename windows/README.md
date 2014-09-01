@@ -12,7 +12,7 @@ The OS can be evaluated for 180-days. http://technet.microsoft.com/en-US/evalcen
 ### Quick Start
 
 ```bash
-packer build -var windows-2012-R2-standard-amd64.json
+packer build windows-2012-R2-standard-amd64.json
 ```
 
 ### Windows 2012 R2 Standard 
