@@ -38,6 +38,18 @@
         {
             "type": "shell",
             "inline": ["net user Administrator {{ user `password`}}"]
+        },
+
+        {
+            "type": "shell",
+            "remote_path": "/cygdrive/c/Windows/Temp/script.bat",
+            "execute_command": "cmd /c C:/Windows/Temp/script.bat",
+            "scripts": [
+                "scripts/common/enable-rdp.bat",
+                "scripts/common/disable-hibernate.bat",
+                "scripts/common/execution-policy-unrestricted.bat",
+                "scripts/common/unlimited-password-expiration.bat"
+            ]
         }
     ]
 }
