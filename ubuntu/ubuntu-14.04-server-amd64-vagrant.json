@@ -40,16 +40,12 @@
         {
             "type": "shell",
             "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
-            "override": {
-                "ubuntu-vagrant": {
-                    "scripts": [
-                        "scripts/update.sh",
-                        "scripts/packages.sh",
-                        "scripts/network.sh",
-                        "scripts/vagrant.sh"
-                    ]
-                }
-            }
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/network.sh",
+                "scripts/vagrant.sh"
+            ]
         }
     ]
 }

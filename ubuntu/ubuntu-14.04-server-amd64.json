@@ -48,16 +48,12 @@
     "provisioners": [
         {
             "type": "shell",
-            "override": {
-                "ubuntu": {
-                    "scripts": [
-                        "scripts/update.sh",
-                        "scripts/packages.sh",
-                        "scripts/network.sh"
-                    ],
-                    "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
-                }
-            }
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/network.sh"
+            ],
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
         }
     ]
 }
