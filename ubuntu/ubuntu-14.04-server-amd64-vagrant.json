@@ -18,11 +18,11 @@
 
             "http_directory": "http",
 
-            "boot_wait": "2s",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
             "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
 
+            "boot_wait": "2s",
             "boot_command": [
                 "<esc><esc><enter><wait>",
                 "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
