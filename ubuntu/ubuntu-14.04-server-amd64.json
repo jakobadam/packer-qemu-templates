@@ -1,7 +1,7 @@
 {
     "variables": {
-        "user": null,
-        "password": null,
+        "user": "adminubuntu",
+        "password": "adminubuntu",
         "disk_size": 100000
     },
     
@@ -9,7 +9,7 @@
     [
         {
             "type": "qemu",
-            "name": "ubuntu-14.04-server-amd64",
+            "name": "ubuntu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
@@ -20,23 +20,26 @@
 
             "http_directory": "http",
 
-            "boot_wait": "10s",
             "ssh_username": "{{user `user`}}",
             "ssh_password": "{{user `password`}}",
             "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
 
+            "boot_wait": "2s",
             "boot_command": [
                 "<esc><esc><enter><wait>",
-                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+                "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
-                "fb=false debconf/frontend=noninteractive ",
-                "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
-                "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+
+                "keyboard-configuration/modelcode=SKIP ",
+                "keyboard-configuration/layout=USA ",
+                "keyboard-configuration/variant=USA ",
+
                 "passwd/user-fullname={{user `user`}} ",
-                "passwd/user-password={{user `password`}} ",
                 "passwd/user-password-again={{user `password`}} ",
+                "passwd/user-password={{user `password`}} ",
                 "passwd/username={{user `user`}} ",
+
                 "initrd=/install/initrd.gz -- <enter>"
             ]
         }
@@ -45,16 +48,12 @@
     "provisioners": [
         {
             "type": "shell",
-            "override": {
-                "ubuntu-14.04-server-amd64": {
-                    "scripts": [
-                        "scripts/update.sh",
-                        "scripts/packages.sh",
-                        "scripts/network.sh"
-                    ],
-                    "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
-                }
-            }
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/network.sh"
+            ],
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
         }
     ]
 }

@@ -1,34 +1,38 @@
 {
+    "variables": {
+        "disk_size": 100000
+    },
+
     "builders":
     [
         {
-            "name": "ubuntu-14.04-server-amd64-vagrant",
-
             "type": "qemu",
+            "name": "ubuntu-vagrant",
             "format": "qcow2",
-            "disk_size": 100000,
+            "accelerator": "kvm",
+            "disk_size": "{{ user `disk_size`}}",
 
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
             "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
             "iso_checksum_type": "md5",
 
-            "headless": false,
-            "accelerator": "kvm",
             "http_directory": "http",
 
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
+            "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
 
             "boot_wait": "5s",
-            "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
             "boot_command": [
                 "<esc><esc><enter><wait><wait>",
-                "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
+                "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
-                "fb=false debconf/frontend=noninteractive ",
-                "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
-                "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+
+                "keyboard-configuration/modelcode=SKIP ",
+                "keyboard-configuration/layout=USA ",
+                "keyboard-configuration/variant=USA ",
+
                 "initrd=/install/initrd.gz -- <enter>"
             ]
         }
@@ -38,16 +42,12 @@
         {
             "type": "shell",
             "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
-            "override": {
-                "ubuntu-14.04-server-amd64-vagrant": {
-                    "scripts": [
-                        "scripts/update.sh",
-                        "scripts/packages.sh",
-                        "scripts/network.sh",
-                        "scripts/vagrant.sh"
-                    ]
-                }
-            }
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/network.sh",
+                "scripts/vagrant.sh"
+            ]
         }
     ]
 }
