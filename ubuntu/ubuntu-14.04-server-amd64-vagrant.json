@@ -19,10 +19,10 @@
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
 
-            "boot_wait": "10s",
+            "boot_wait": "5s",
             "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
             "boot_command": [
-                "<esc><esc><enter><wait>",
+                "<esc><esc><enter><wait><wait>",
                 "/install/vmlinuz preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
