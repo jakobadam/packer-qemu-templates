@@ -13,12 +13,6 @@ $ cd windows
 $ packer build windows-2012-R2-standard-amd64-vagrant.json
 ```
 
-Reuse downloaded isos accross templates:
-
-```bash
-$ export PACKER_CACHE_DIR=~/packer-qemu-templates/iso
-```
-
 ##Acknowledgements
 
 [packer-images](https://github.com/opentable/packer-images.git)
