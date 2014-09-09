@@ -118,7 +118,7 @@
            which runs first logon commands -->
       <AutoLogon>
         <Password>
-          <Value>vagrant</Value>
+          <Value>V@grant</Value>
           <PlainText>true</PlainText>
         </Password>
         <Enabled>true</Enabled>
@@ -155,7 +155,7 @@
         <LocalAccounts>
           <LocalAccount wcm:action="add">
             <Password>
-              <Value>vagrant</Value>
+              <Value>V@grant</Value>
               <PlainText>true</PlainText>
             </Password>
             <Group>administrators</Group>
