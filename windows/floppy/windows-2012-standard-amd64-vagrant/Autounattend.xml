@@ -146,11 +146,11 @@
       </OOBE>
 
       <UserAccounts>
-        <!-- admin account with no password -->
-        <!-- <AdministratorPassword> -->
-        <!--   <Value></Value> -->
-        <!--   <PlainText>true</PlainText> -->
-        <!-- </AdministratorPassword> -->
+
+        <AdministratorPassword>
+          <Value>V@grant</Value>
+          <PlainText>true</PlainText>
+        </AdministratorPassword>
 
         <LocalAccounts>
           <LocalAccount wcm:action="add">
