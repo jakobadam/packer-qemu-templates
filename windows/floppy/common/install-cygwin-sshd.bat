@@ -9,7 +9,7 @@ cmd /c bitsadmin /transfer CygwinSetupExe /download /priority normal %URL% %Syst
 cd /D %SystemDrive%\windows\temp
 
 :: packages -- comma separated
-set PACKAGES=cygrunsrv,openssh
+set PACKAGES=cygrunsrv,openssh,rsync
 
 %SystemDrive%\cygwin\cygwin-setup-x86_64.exe -a x86_64 -q -R %SystemDrive%\cygwin -P %PACKAGES% -s http://cygwin.mirrors.pair.com
 
