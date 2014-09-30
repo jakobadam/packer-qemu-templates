@@ -49,7 +49,8 @@
                 "scripts/disable-hibernate.bat",
                 "scripts/execution-policy-unrestricted.bat",
                 "scripts/unlimited-password-expiration.bat",
-                "scripts/vagrant-ssh.bat"
+                "scripts/vagrant-ssh.bat",
+                "scripts/winrm-allow-basic.bat"
             ]
         }
     ]
