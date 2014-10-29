@@ -1,0 +1,19 @@
+PACKAGES="
+acpid
+apt-file
+bind9-host
+bzip2
+curl
+dnsutils
+emacs24-nox
+htop
+nmon
+ntp
+rsync
+slurm
+sudo
+tcpdump
+unzip
+vim-nox
+"
+aptitude -y install --without-recommends $PACKAGES
