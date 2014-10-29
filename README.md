@@ -30,7 +30,7 @@ $ packer build windows-2012-R2-standard-amd64-vagrant.json
 
 ##Acknowledgements
 
-[packer-images](https://github.com/opentable/packer-images.git)
-[packer-windows](https://github.com/joefitzgerald/packer-windows)
-[box-cutter](https://github.com/box-cutter/)
+* [packer-images](https://github.com/opentable/packer-images.git)
+* [packer-windows](https://github.com/joefitzgerald/packer-windows)
+* [box-cutter](https://github.com/box-cutter/)
 
