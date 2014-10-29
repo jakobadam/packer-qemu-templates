@@ -34,7 +34,7 @@ $ packer build windows-2012-R2-standard-amd64-vagrant.json
 After installing the OS in the image you can create a vagrant box
 
 ```bash
-$ ~/vagrant-kvm/bin/package windows-2012R2 packer-windows-2012R2-vagrant.qcow2
+$ ~/vagrant-kvm/bin/package.sh windows-2012R2 packer-windows-2012R2-vagrant.qcow2
 ```
 
 Add the box to vagrant
