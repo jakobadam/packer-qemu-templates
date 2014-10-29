@@ -3,7 +3,7 @@
         "user": "admindebian",
         "password": "admindebian",
         "disk_size": 100000,
-        "domain": "local"
+        "domain": ""
     },
     
     "builders":
@@ -35,7 +35,7 @@
                    "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
                    "debian-installer=en_US locale=en_US keymap=us ",
                    "netcfg/get_hostname={{ .Name }} ",
-                   "netcfg/get_domain= ",
+                   "netcfg/get_domain={{ user `domain`}} ",
                 
                    "fb=false debconf/frontend=noninteractive ",
 
@@ -55,9 +55,9 @@
             "override": {
                 "debian": {
                     "scripts": [
-                        "scripts/common/update.sh",
-                        "scripts/common/packages.sh",
-                        "scripts/common/cleanup.sh"
+                        "scripts/update.sh",
+                        "scripts/packages.sh",
+                        "scripts/cleanup.sh"
                     ],
                     "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
                 }
