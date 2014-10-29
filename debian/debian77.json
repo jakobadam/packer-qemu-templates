@@ -52,16 +52,12 @@
     "provisioners": [
         {
             "type": "shell",
-            "override": {
-                "debian": {
-                    "scripts": [
-                        "scripts/update.sh",
-                        "scripts/packages.sh",
-                        "scripts/cleanup.sh"
-                    ],
-                    "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
-                }
-            }
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
+                "scripts/cleanup.sh"
+            ],
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
         }
     ]
 }
