@@ -1,7 +1,9 @@
 ##Introduction
 
-The packer-qemu-images is a project that provides easy building of
-relevant images in the QEMU format.
+The packer-qemu-images is a project that provides packer templates for slipstreamed building of
+relevant images in the qcow2 format. 
+
+The qcow2 images can be converted to vagrant boxes runnable by [vagrant-kvm](https://github.com/adrahon/vagrant-kvm).
 
 More info: http://blog.aarhusworks.com/slipstreaming-vm-imags-with-packer/
 
