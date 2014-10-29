@@ -13,6 +13,7 @@ Feel free to contribute more:-)
 
 ##Usage
 
+###Build qcow2 image
 Go into the relevant template directory and run packer build on
 the relevant json file.
 
@@ -26,6 +27,16 @@ There is also version with vagrant SSH keys included:
 ```bash
 $ cd windows
 $ packer build windows-2012-R2-standard-amd64-vagrant.json
+```
+
+###Build vagrant box for running with [vagrant-kvm](https://github.com/adrahon/vagrant-kvm)
+```bash
+$ ~/vagrant-kvm/bin/package windows-2012R2 packer-windows-2012R2-vagrant.qcow2
+```
+
+Add box to vagrant
+```bash
+$ vagrant box add windows-2012R2.box --name windows-2012R2
 ```
 
 ##Acknowledgements
