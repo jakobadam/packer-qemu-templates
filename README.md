@@ -24,7 +24,7 @@ $ cd windows
 $ packer build windows-2012-R2-standard-amd64.json
 ```
 
-There is also version with vagrant SSH keys included:
+There is also a version with vagrant SSH keys included:
 
 ```bash
 $ cd windows
