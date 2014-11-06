@@ -6,8 +6,9 @@
     "builders":
     [
         {
+            "name": "ubuntu-1404-server-vagrant",
+
             "type": "qemu",
-            "name": "ubuntu-vagrant",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",

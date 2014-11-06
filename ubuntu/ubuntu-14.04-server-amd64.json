@@ -4,12 +4,13 @@
         "password": "adminubuntu",
         "disk_size": 100000
     },
-    
+
     "builders":
     [
         {
+            "name": "ubuntu-1404-server",
+
             "type": "qemu",
-            "name": "ubuntu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
