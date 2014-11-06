@@ -1,5 +1,7 @@
 {
     "variables": {
+        "user": "vagrant",
+        "password": "vagrant",
         "disk_size": 100000
     },
 
@@ -19,9 +21,9 @@
 
             "http_directory": "http",
 
-            "ssh_username": "vagrant",
-            "ssh_password": "vagrant",
-            "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+            "ssh_username": "{{user `user`}}",
+            "ssh_password": "{{user `password`}}",
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
 
             "boot_wait": "2s",
             "boot_command": [
@@ -34,6 +36,11 @@
                 "keyboard-configuration/layout=USA ",
                 "keyboard-configuration/variant=USA ",
 
+                "passwd/user-fullname={{user `user`}} ",
+                "passwd/user-password-again={{user `password`}} ",
+                "passwd/user-password={{user `password`}} ",
+                "passwd/username={{user `user`}} ",
+
                 "initrd=/install/initrd.gz -- <enter>"
             ]
         }
@@ -42,7 +49,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
             "scripts": [
                 "scripts/update.sh",
                 "scripts/packages.sh",
