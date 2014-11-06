@@ -22,7 +22,7 @@
             "ssh_password": "vagrant",
             "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
 
-            "boot_wait": "5s",
+            "boot_wait": "2s",
             "boot_command": [
                 "<esc><esc><enter><wait><wait>",
                 "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
