@@ -5,30 +5,28 @@
         "disk_size": 100000,
         "domain": ""
     },
-    
+
     "builders":
     [
         {
-            "name": "debian",
+            "name": "debian77",
 
             "type": "qemu",
             "format": "qcow2",
+            "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
             "iso_url": "http://cdimage.debian.org/debian-cd/7.7.0/amd64/iso-cd/debian-7.7.0-amd64-netinst.iso",
             "iso_checksum": "0b31bccccb048d20b551f70830bb7ad0",
             "iso_checksum_type": "md5",
 
-            "accelerator": "kvm",
             "http_directory": "http",
-	    
-            "boot_wait": "2s",
 
             "ssh_username": "{{user `user`}}",
             "ssh_password": "{{user `password`}}",
-
             "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -h now",
 
+            "boot_wait": "2s",
             "boot_command": [
                    "<esc><wait><wait>",
                    "install auto ",
@@ -36,7 +34,7 @@
                    "debian-installer=en_US locale=en_US keymap=us ",
                    "netcfg/get_hostname={{ .Name }} ",
                    "netcfg/get_domain={{ user `domain`}} ",
-                
+
                    "fb=false debconf/frontend=noninteractive ",
 
                    "passwd/user-fullname={{user `user`}} ",
@@ -52,12 +50,12 @@
     "provisioners": [
         {
             "type": "shell",
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
             "scripts": [
                 "scripts/update.sh",
                 "scripts/packages.sh",
                 "scripts/cleanup.sh"
-            ],
-            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'"
+            ]
         }
     ]
 }
