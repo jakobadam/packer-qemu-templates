@@ -25,7 +25,7 @@
             "boot_wait": "5s",
             "boot_command": [
                 "<esc><esc><enter><wait><wait>",
-                "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed-vagrant.cfg ",
+                "/install/vmlinuz url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
                 "hostname={{ .Name }} ",
 
