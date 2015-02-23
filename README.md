@@ -1,9 +1,9 @@
 ##Introduction
 
-The packer-qemu-images is a project that provides packer templates for slipstreamed building of
+The packer-qemu-images is a project that provides packer templates for unattended building of
 relevant images in the qcow2 format. 
 
-The qcow2 images can be converted to vagrant boxes runnable by [vagrant-kvm](https://github.com/adrahon/vagrant-kvm).
+In addition, all templates for use with Vagrant, through [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt), automatically creates the Vagrant box through the packer libvirt post-processor. 
 
 More info: http://blog.aarhusworks.com/slipstreaming-vm-imags-with-packer/
 
@@ -29,14 +29,6 @@ There is also a version with vagrant SSH keys included:
 ```bash
 $ cd windows
 $ packer build windows-2012-R2-standard-amd64-vagrant.json
-```
-
-###Build vagrant box for running with [vagrant-kvm](https://github.com/adrahon/vagrant-kvm)
-
-After installing the OS in the image you can create a vagrant box
-
-```bash
-$ ~/vagrant-kvm/bin/package.sh windows-2012R2 packer-windows-2012R2-vagrant.qcow2
 ```
 
 Add the box to vagrant
