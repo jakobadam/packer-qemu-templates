@@ -50,5 +50,13 @@
                 "scripts/winrm-allow-basic.bat"
             ]
         }
+    ],
+
+    "post-processors": [
+        {
+            "keep_input_artifact": false,
+            "output": "box/windows-2012R2-standard-amd64-vagrant.box",
+            "type": "vagrant"
+        }
     ]
 }
