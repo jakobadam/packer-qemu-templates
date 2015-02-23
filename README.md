@@ -1,9 +1,9 @@
 ##Introduction
 
-The packer-qemu-images is a project that provides packer templates for unattended building of
+The packer-qemu-templates is a project that provides packer templates for unattended building of
 relevant images in the qcow2 format. 
 
-In addition, all templates for use with Vagrant, through [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt), automatically creates the Vagrant box through the packer libvirt post-processor. 
+In addition, all templates for use with Vagrant, through [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt), automatically creates a Vagrant box through the packer libvirt post-processor. 
 
 More info: http://blog.aarhusworks.com/slipstreaming-vm-imags-with-packer/
 
