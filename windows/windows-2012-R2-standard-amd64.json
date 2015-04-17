@@ -20,6 +20,8 @@
 
             "ssh_username": "Administrator",
             "ssh_password": "Administrator",
+            "ssh_wait_timeout": "30m",
+
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
             "boot_wait": "2s",
 
