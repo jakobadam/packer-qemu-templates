@@ -56,7 +56,7 @@
     "post-processors": [
         {
             "keep_input_artifact": false,
-            "output": "box/windows-2012R2-standard-amd64-vagrant.box",
+            "output": "box/windows-2012R2-standard-amd64.box",
             "type": "vagrant"
         }
     ]
