@@ -33,7 +33,13 @@ http://technet.microsoft.com/en-us/library/cc786468%28v=ws.10%29.aspx
 ### Windows 2012 R2 Standard Vagrant
 
 * User vagrant
-* Default password V@grant
+* Default password V@grant, remember set that in the Vagrantfile
+
+```
+  config.vm.define :windows do |c|
+    ...
+    c.winrm.password = "V@grant"
+  end
+```
+
 * Vagrant *insecure* public key is deployed for SSH access.
-
-
