@@ -1,6 +1,6 @@
 {
     "variables": {
-        "disk_size": 61440,
+        "disk_size": "61440",
         "password": "V@grant"
     },
 
