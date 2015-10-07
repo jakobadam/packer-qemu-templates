@@ -1,23 +1,23 @@
 {
     "variables": {
-        "user": "admindebian",
-        "password": "admindebian",
-        "disk_size": 100000,
+        "user": "vagrant",
+        "password": "vagrant",
+        "disk_size": "100000",
         "domain": ""
     },
 
     "builders":
     [
         {
-            "name": "debian77",
+            "name": "debian82-vagrant",
 
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
-            "iso_url": "http://cdimage.debian.org/debian-cd/7.7.0/amd64/iso-cd/debian-7.7.0-amd64-netinst.iso",
-            "iso_checksum": "0b31bccccb048d20b551f70830bb7ad0",
+            "iso_url": "http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/debian-8.2.0-amd64-netinst.iso",
+            "iso_checksum": "762eb3dfc22f85faf659001ebf270b4f",
             "iso_checksum_type": "md5",
 
             "http_directory": "http",
@@ -25,6 +25,8 @@
             "ssh_username": "{{user `user`}}",
             "ssh_password": "{{user `password`}}",
             "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -h now",
+
+            "ssh_wait_timeout": "60m",
 
             "boot_wait": "2s",
             "boot_command": [
@@ -54,8 +56,18 @@
             "scripts": [
                 "scripts/update.sh",
                 "scripts/packages.sh",
+                "scripts/vagrant.sh",
                 "scripts/cleanup.sh"
             ]
         }
+    ],
+
+    "post-processors": [
+        {
+            "keep_input_artifact": false,
+            "output": "box/debian82-vagrant.box",
+            "type": "vagrant"
+        }
     ]
+
 }
