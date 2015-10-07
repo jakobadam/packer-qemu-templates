@@ -2,7 +2,7 @@
     "variables": {
         "user": "vagrant",
         "password": "vagrant",
-        "disk_size": 100000,
+        "disk_size": "100000",
         "domain": ""
     },
 
@@ -67,5 +67,5 @@
             "type": "vagrant"
         }
     ]
- 
+
 }
