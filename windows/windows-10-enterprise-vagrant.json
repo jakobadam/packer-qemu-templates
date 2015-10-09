@@ -1,0 +1,70 @@
+{
+    "variables": {
+        "disk_size": "61440",
+        "password": "V@grant"
+    },
+
+    "builders": [
+        {
+            "name": "windows-10-vagrant",
+
+            "type": "qemu",
+            "format":"qcow2",
+            "accelerator": "kvm",
+            
+            "disk_size": "{{ user `disk_size`}}",
+            "disk_interface":"virtio",
+            
+            "iso_url": "http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF/10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO",            
+            "iso_checksum_type": "sha1",
+            "iso_checksum": "56ab095075be28a90bc0b510835280975c6bb2ce",            
+
+            "ssh_username": "vagrant",
+            "ssh_password": "{{ user `password`}}",
+            "ssh_wait_timeout": "1h",
+
+            "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+            "boot_wait": "2s",
+
+            "floppy_files": [
+                "floppy/drivers/virtio-win-0.1.102/viostor/w8.1/amd64/*",
+                "floppy/drivers/virtio-win-0.1.102/NetKVM/w8.1/amd64/*",
+                "floppy/common/*",
+                "floppy/windows-10-vagrant/*"
+            ],
+            
+            "qemuargs": [
+                [ "-m", "4048M" ],
+                [ "-cpu", "Westmere" ]
+            ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": ["net user vagrant {{ user `password`}}"]
+        },
+
+        {
+            "type": "shell",
+            "remote_path": "/cygdrive/c/Windows/Temp/script.bat",
+            "execute_command": "cmd /c C:/Windows/Temp/script.bat",
+            "scripts": [
+                "scripts/enable-rdp.bat",
+                "scripts/disable-hibernate.bat",
+                "scripts/execution-policy-unrestricted.bat",
+                "scripts/unlimited-password-expiration.bat",
+                "scripts/vagrant-ssh.bat" 
+            ]
+        }
+    ],
+
+    "post-processors": [
+        {
+            "keep_input_artifact": false,
+            "output": "box/windows-10.box",
+            "type": "vagrant"
+        }
+    ]
+}
