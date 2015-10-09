@@ -2,21 +2,21 @@
     "variables": {
         "user": "vagrant",
         "password": "vagrant",
-        "disk_size": "100000"
+        "disk_size": "16000"
     },
 
     "builders":
     [
         {
-            "name": "ubuntu-1404-server-vagrant",
+            "name": "ubuntu-1504-server-vagrant",
 
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
-            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
-            "iso_checksum": "83aabd8dcf1e8f469f3c72fff2375195",
+            "iso_url": "http://releases.ubuntu.com/15.04/ubuntu-15.04-server-amd64.iso",
+            "iso_checksum": "487f4a81f22f8597503db3d51a1b502e",
             "iso_checksum_type": "md5",
 
             "http_directory": "http",
@@ -63,7 +63,7 @@
     "post-processors": [
         {
             "keep_input_artifact": false,
-            "output": "box/ubuntu-1404-server.box",
+            "output": "box/ubuntu-1504-server.box",
             "type": "vagrant"
         }
     ]

@@ -1,0 +1,55 @@
+{
+    "variables": {
+        "user": "vagrant",
+        "password": "vagrant",
+        "disk_size": "100000"
+    },
+
+    "builders":
+    [
+        {
+            "name": "centos-6.7-x86_64-server-vagrant",
+
+            "type": "qemu",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "disk_size": "{{ user `disk_size`}}",
+
+            "iso_url": "http://mirror.tocici.com/centos/6.7/isos/x86_64/CentOS-6.7-x86_64-minimal.iso",
+            "iso_checksum": "9381a24b8bee2fed0c26896141a64b69",
+            "iso_checksum_type": "md5",
+
+            "http_directory": "http",
+
+            "ssh_username": "{{user `user`}}",
+            "ssh_password": "{{user `password`}}",
+            "ssh_wait_timeout": "10m",
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+
+            "boot_wait": "2s",
+            "boot_command": [
+               "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"   
+            ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/vagrant.sh",
+                "scripts/cleanup.sh"
+            ]
+        }
+    ],
+
+    "post-processors": [
+        {
+            "keep_input_artifact": false,
+            "output": "box/centos-6.7_x86_64-server.box",
+            "type": "vagrant"
+        }
+    ]
+}
