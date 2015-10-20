@@ -1,7 +1,7 @@
 ##Introduction
 
 The packer-qemu-templates provides Packer templates for unattended building of
-relevant images in the qcow2 format. 
+relevant virtual machine images in the qcow2 format for use with KVM.
 
 In addition, all templates for use with Vagrant, through [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt), are configured to let Packer create a Vagrant box through the libvirt post-processor. 
 
