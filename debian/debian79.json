@@ -9,15 +9,15 @@
     "builders":
     [
         {
-            "name": "debian77",
+            "name": "debian79",
 
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
-            "iso_url": "http://cdimage.debian.org/debian-cd/7.7.0/amd64/iso-cd/debian-7.7.0-amd64-netinst.iso",
-            "iso_checksum": "0b31bccccb048d20b551f70830bb7ad0",
+            "iso_url": "http://cdimage.debian.org/mirror/cdimage/archive/7.9.0/amd64/iso-cd/debian-7.9.0-amd64-netinst.iso",
+            "iso_checksum": "774d1fc8c5364e63b22242c33a89c1a3",
             "iso_checksum_type": "md5",
 
             "http_directory": "http",
