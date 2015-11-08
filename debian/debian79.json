@@ -26,6 +26,8 @@
             "ssh_password": "{{user `password`}}",
             "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -h now",
 
+	    "ssh_wait_timeout": "60m",
+
             "boot_wait": "2s",
             "boot_command": [
                    "<esc><wait><wait>",
