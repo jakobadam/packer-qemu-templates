@@ -40,5 +40,5 @@ $ vagrant box add windows-2012R2.box --name windows-2012R2
 
 * [packer-images](https://github.com/opentable/packer-images.git)
 * [packer-windows](https://github.com/joefitzgerald/packer-windows)
-* [box-cutter](https://github.com/box-cutter/)
+* [box-cutter](https://github.com/boxcutter/)
 
