@@ -5,7 +5,7 @@ relevant virtual machine images in the qcow2 format for use with KVM.
 
 In addition, all templates for use with Vagrant, through [vagrant-libvirt](https://github.com/pradels/vagrant-libvirt), are configured to let Packer create a Vagrant box through the libvirt post-processor. 
 
-More info: http://blog.aarhusworks.com/slipstreaming-vm-imags-with-packer/
+More info: http://blog.aarhusworks.com/unattended-installation-of-vm-images-with-packer/
 
 ##Status
 
