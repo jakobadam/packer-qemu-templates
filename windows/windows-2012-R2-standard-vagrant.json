@@ -5,7 +5,7 @@
 
     "builders": [
         {
-            "name": "windows-2012R2-vagrant",
+            "name": "windows-2012-R2-standard-vagrant",
 
             "type": "qemu",
             "format":"qcow2",
