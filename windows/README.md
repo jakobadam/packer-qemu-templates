@@ -1,24 +1,18 @@
 ## Windows Packer Templates
 
 * Virtio drivers are loaded on startup
-* Configured as 2 CPU and 4 GB memory by default
-* No updates or services packs applied 
-* Firewall is disabled
+* Configured as 2 CPU and 2 GB memory by default
+* Ping enabled
 * RDP enabled
-* Powershell is installed with Remote Execution policy is set to unrestricted
-
-The OS can be evaluated for 180-days. http://technet.microsoft.com/en-US/evalcenter/dn205286.aspx 
+* Vagrant user with password vagrant
 
 ### Quick Start
 
 ```bash
-$ packer build windows-2012-R2-standard-amd64.json
+$ packer build windows-2012-R2-standard.json
 ```
 
-### Windows 2012 R2 Standard 
-
-* User Administrator
-* Default password Administr@tor
+### Windows 2012 R2 Standard
 
 Alter the admin password and the disk size:
 
@@ -29,17 +23,3 @@ $ packer build -var "disk_size=61440" -var "password=$password" windows-2012-R2-
 
 *NOTE*: Password strength requirements are pretty harsh
 http://technet.microsoft.com/en-us/library/cc786468%28v=ws.10%29.aspx
-
-### Windows 2012 R2 Standard Vagrant
-
-* User vagrant
-* Default password V@grant, remember set that in the Vagrantfile
-
-```
-  config.vm.define :windows do |c|
-    ...
-    c.winrm.password = "V@grant"
-  end
-```
-
-* Vagrant *insecure* public key is deployed for SSH access.

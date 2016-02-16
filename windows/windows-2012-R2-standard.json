@@ -6,7 +6,7 @@
 
     "builders": [
         {
-            "name": "windows-10-enterprise",
+            "name": "windows-2012R2-vagrant",
 
             "type": "qemu",
             "format":"qcow2",
@@ -15,9 +15,9 @@
             "disk_size": "{{ user `disk_size`}}",
             "disk_interface":"virtio",
 
-            "iso_url": "http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF/10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO",
-            "iso_checksum_type": "sha1",
-            "iso_checksum": "56ab095075be28a90bc0b510835280975c6bb2ce",
+            "iso_url": "http://care.dlservice.microsoft.com/dl/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_SERVER_EVAL_EN-US-IR3_SSS_X64FREE_EN-US_DV9.ISO",
+            "iso_checksum_type": "md5",
+            "iso_checksum": "5b5e08c490ad16b59b1d9fab0def883a",
 
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
             "boot_wait": "2s",
@@ -26,7 +26,7 @@
                 "floppy/drivers/virtio-win-0.1.102/viostor/w8.1/amd64/*",
                 "floppy/drivers/virtio-win-0.1.102/NetKVM/w8.1/amd64/*",
                 "floppy/common/*",
-                "floppy/windows-10-enterprise//*"
+                "floppy/windows-2012-R2-standard/*"
             ],
 
             "communicator": "winrm",
@@ -42,21 +42,19 @@
         }
     ],
 
-    "provisioners": [
-        {
-            "type": "windows-shell",
-            "scripts": [
-                "scripts/unlimited-password-expiration.bat",
-                "scripts/enable-rdp.bat",
-                "scripts/uac-disable.bat",
-                "scripts/disablewinupdate.bat",
-                "scripts/disable-hibernate.bat"
-            ]
-        },
+  "provisioners": [
+      {
+          "type": "windows-shell",
+          "scripts": [
+              "scripts/unlimited-password-expiration.bat",
+              "scripts/enable-rdp.bat",
+              "scripts/uac-disable.bat",
+              "scripts/disablewinupdate.bat",
+              "scripts/disable-hibernate.bat",
+              "scripts/firewall-open-ping.bat",
+              "scripts/firewall-open-rdp.bat"
 
-        {
-            "type": "windows-shell",
-            "inline": ["net user vagrant {{ user `password`}}"]
-        }
+          ]
+      }
     ]
 }

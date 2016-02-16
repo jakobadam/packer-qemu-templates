@@ -28,12 +28,23 @@ There is also a version with Vagrant SSH keys included:
 
 ```bash
 $ cd windows
-$ packer build windows-2012-R2-standard-amd64-vagrant.json
+$ packer build windows-2012-R2-standard-vagrant.json
 ```
 
 Add the box to Vagrant
 ```bash
-$ vagrant box add windows-2012R2.box --name windows-2012R2
+$ vagrant box add windows-2012-R2-standard.box --name windows-2012-R2-standard
+```
+
+Init vagrantfile
+```
+$ mkdir project & cd $_
+$ vagrant init windows-2012-R2-standard
+```
+
+Start machine
+```
+$ vagrant up
 ```
 
 ##Acknowledgements
