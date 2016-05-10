@@ -1,10 +1,10 @@
-; Copyright (c) 2008-2015, Red Hat Inc.
+; Copyright (c) 2008-2016, Red Hat Inc.
 [Version]
 Signature="$Windows NT$"
 Class=SCSIAdapter
 ClassGUID={4D36E97B-E325-11CE-BFC1-08002BE10318}
 Provider=%RHEL%
-DriverVer=03/10/2015,62.72.104.10200
+DriverVer=04/08/2016,62.73.104.11700
 CatalogFile=viostor.cat
 DriverPackageType = PlugAndPlay
 DriverPackageDisplayName = %RHELScsi.DeviceDesc%

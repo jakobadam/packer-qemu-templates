@@ -23,8 +23,8 @@
             "boot_wait": "2s",
 
             "floppy_files": [
-                "floppy/drivers/virtio-win-0.1.102/viostor/w8.1/amd64/*",
-                "floppy/drivers/virtio-win-0.1.102/NetKVM/w8.1/amd64/*",
+                "floppy/drivers/virtio-win-0.1.117/viostor/w10/amd64/*",
+                "floppy/drivers/virtio-win-0.1.117/NetKVM/w10/amd64/*",
                 "floppy/common/*",
                 "floppy/windows-10-enterprise//*"
             ],
