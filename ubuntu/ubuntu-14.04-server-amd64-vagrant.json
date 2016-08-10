@@ -15,8 +15,8 @@
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
-            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
-            "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
+            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
+            "iso_checksum": "dd54dc8cfc2a655053d19813c2f9aa9f",
             "iso_checksum_type": "md5",
 
             "http_directory": "http",
