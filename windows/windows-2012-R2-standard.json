@@ -23,8 +23,8 @@
             "boot_wait": "2s",
 
             "floppy_files": [
-                "floppy/drivers/virtio-win-0.1.102/viostor/w8.1/amd64/*",
-                "floppy/drivers/virtio-win-0.1.102/NetKVM/w8.1/amd64/*",
+                "floppy/drivers/virtio-win-0.1.117/viostor/2k12R2/amd64/*",
+                "floppy/drivers/virtio-win-0.1.117/NetKVM/2k12R2/amd64/*",
                 "floppy/common/*",
                 "floppy/windows-2012-R2-standard/*"
             ],

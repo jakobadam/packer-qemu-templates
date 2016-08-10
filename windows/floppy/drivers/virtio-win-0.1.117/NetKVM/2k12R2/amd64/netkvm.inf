@@ -3,7 +3,7 @@
 ; 
 ; Red Hat VirtIO Ethernet Adapter 
 ; 
-; Copyright (c) 2008-2015 Red Hat, Inc.  All rights reserved. 
+; Copyright (c) 2008-2016 Red Hat, Inc.  All rights reserved. 
 ; 
 ;------------------------------------------------------------------------------- 
  
@@ -13,7 +13,7 @@ Class       = Net
 CatalogFile = netkvm.cat 
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318} 
 Provider    = %RedHat% 
-DriverVer=03/10/2015,62.72.104.10200 
+DriverVer=04/08/2016,62.73.104.11700 
 DriverPackageType = PlugAndPlay 
 DriverPackageDisplayName = %kvmnet6.DeviceDesc% 
  
@@ -30,7 +30,7 @@ AddReg          = kvmnet6.EnableMSI
 ;HKR, "Interrupt Management",, 0x00000010 
 ;HKR, "Interrupt Management\MessageSignaledInterruptProperties",, 0x00000010 
 HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1 
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 32 
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 2048 
 ;HKR, "Interrupt Management\Affinity Policy",, 0x00000010 
 HKR, "Interrupt Management\Affinity Policy", DevicePolicy, 0x00010001, 0 
 HKR, "Interrupt Management\Affinity Policy", DevicePriority, 0x00010001, 2 
@@ -107,13 +107,6 @@ HKR, Ndi\params\DebugLevel,         default,    0,          "0"
 HKR, Ndi\params\DebugLevel,         min,        0,          "0" 
 HKR, Ndi\params\DebugLevel,         max,        0,          "8" 
 HKR, Ndi\params\DebugLevel,         step,       0,          "1" 
- 
-HKR, Ndi\params\LogStatistics,      ParamDesc,  0,          %LogStatistics% 
-HKR, Ndi\params\LogStatistics,      type,       0,          "int" 
-HKR, Ndi\params\LogStatistics,      default,    0,          "0" 
-HKR, Ndi\params\LogStatistics,      min,        0,          "0" 
-HKR, Ndi\params\LogStatistics,      max,        0,          "10000" 
-HKR, Ndi\params\LogStatistics,      step,       0,          "1" 
  
 HKR, Ndi\params\MTU,                ParamDesc,  0,          %MTU% 
 HKR, Ndi\params\MTU,                type,       0,          "long" 
@@ -281,7 +274,6 @@ Offload.TxLSO = "Offload.Tx.LSO"
 Offload.RxCS = "Offload.Rx.Checksum" 
 EnableLogging = "Logging.Enable" 
 DebugLevel = "Logging.Level" 
-LogStatistics = "Logging.Statistics(sec)" 
 Tx = "Tx Enabled"; 
 Rx = "Rx Enabled"; 
 TxRx = "Rx & Tx Enabled"; 
