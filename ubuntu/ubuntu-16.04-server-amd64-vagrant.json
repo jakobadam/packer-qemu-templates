@@ -8,7 +8,7 @@
     "builders":
     [
         {
-            "name": "ubuntu-1604-server-vagrant",
+            "name": "ubuntu-1604-server",
 
             "type": "qemu",
             "format": "qcow2",
@@ -55,7 +55,8 @@
                 "scripts/update.sh",
                 "scripts/packages.sh",
                 "scripts/network.sh",
-                "scripts/vagrant.sh"
+                "scripts/vagrant.sh",
+                "scripts/cleanup.sh"
             ]
         }
     ],

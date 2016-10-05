@@ -8,7 +8,7 @@
     "builders":
     [
         {
-            "name": "ubuntu-1604-server-vagrant",
+            "name": "ubuntu-1604-server",
 
             "type": "qemu",
             "format": "qcow2",
