@@ -1,14 +1,13 @@
 # Ubuntu packer templates
 
-## Create image
+## Create vagrant image for use with vagrant libvirt
 
 ```bash
-read -p 'Enter password: ' -s password
-packer build -var 'user=ubuntu' -var "password=$password" ubuntu-14.04-server-amd64.json
+packer build -var-file=ubuntu1604.json ubuntu-vagrant.json
 ```
 
-## Software pre-installed
+## Create qcow2 image for use with kvm
 
-Look in scripts/packages.sh
-
-
+```bash
+packer build -var-file=ubuntu1604.json ubuntu.json
+```
