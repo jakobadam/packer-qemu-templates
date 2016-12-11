@@ -1,7 +1,7 @@
 {
     "variables": {
-        "user": "admindebian",
-        "password": "admindebian",
+        "user": "vagrant",
+        "password": "vagrant",
         "disk_size": "100000",
         "domain": ""
     },
@@ -9,15 +9,15 @@
     "builders":
     [
         {
-            "name": "debian83",
+            "name": "debian83-vagrant",
 
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
             "disk_size": "{{ user `disk_size`}}",
 
-            "iso_url": "http://cdimage.debian.org/debian-cd/8.3.0/amd64/iso-cd/debian-8.3.0-amd64-netinst.iso",
-            "iso_checksum": "a9b490b4215d1e72e876b031dafa7184",
+            "iso_url": "http://cdimage.debian.org/debian-cd/8.6.0/amd64/iso-cd/debian-8.6.0-amd64-netinst.iso",
+            "iso_checksum": "e9f61bf327db6d8f7cee05a99f2353cc",
             "iso_checksum_type": "md5",
 
             "http_directory": "http",
@@ -56,8 +56,18 @@
             "scripts": [
                 "scripts/update.sh",
                 "scripts/packages.sh",
+                "scripts/vagrant.sh",
                 "scripts/cleanup.sh"
             ]
         }
+    ],
+
+    "post-processors": [
+        {
+            "keep_input_artifact": false,
+            "output": "box/debian86-vagrant.box",
+            "type": "vagrant"
+        }
     ]
+
 }
