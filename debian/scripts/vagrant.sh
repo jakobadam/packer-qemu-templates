@@ -4,7 +4,7 @@
 date > /etc/vagrant_box_build_time
 
 # Set up sudo
-echo 'vagrant ALL=NOPASSWD:ALL' > /etc/sudoers.d/vagrant
+echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/vagrant
 
 # Install vagrant key
 mkdir -pm 700 /home/vagrant/.ssh
