@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-# From https://github.com/box-cutter/debian-vm/blob/master/script/cleanup.sh
+# From https://github.com/boxcutter/debian/blob/master/script/cleanup.sh
 
 CLEANUP_PAUSE=${CLEANUP_PAUSE:-0}
 echo "==> Pausing for ${CLEANUP_PAUSE} seconds..."
