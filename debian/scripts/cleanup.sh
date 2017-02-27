@@ -43,7 +43,8 @@ rm -f /root/.bash_history
 rm -f /home/vagrant/.bash_history
 
 # Clean up log files
-find /var/log -type f | while read f; do echo -ne '' > $f; done;
+echo "==> Purging log files"
+find /var/log -type f -delete
 
 # Skipping the whiteout part from box-cutter -- which would just fill up the qcow2 image
 
