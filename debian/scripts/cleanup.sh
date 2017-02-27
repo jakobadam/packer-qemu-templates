@@ -6,6 +6,10 @@ CLEANUP_PAUSE=${CLEANUP_PAUSE:-0}
 echo "==> Pausing for ${CLEANUP_PAUSE} seconds..."
 sleep ${CLEANUP_PAUSE}
 
+# Unique SSH keys will be generated on first boot
+echo "==> Removing SSH server keys"
+rm -f /etc/ssh/*_key*
+
 # Make sure Udev doesn't block our network
 # http://6.ptmc.org/?p=164
 echo "cleaning up udev rules"
