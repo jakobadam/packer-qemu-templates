@@ -10,6 +10,11 @@ sleep ${CLEANUP_PAUSE}
 echo "==> Removing SSH server keys"
 rm -f /etc/ssh/*_key*
 
+# Unique machine ID will be generated on first boot
+echo "==> Removing machine ID"
+rm -f /etc/machine-id
+rm -f /var/lib/dbus/machine-id
+
 # Make sure Udev doesn't block our network
 # http://6.ptmc.org/?p=164
 echo "cleaning up udev rules"
