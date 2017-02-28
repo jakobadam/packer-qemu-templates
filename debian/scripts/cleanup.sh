@@ -1,10 +1,19 @@
 #!/bin/bash -eux
 
-# From https://github.com/box-cutter/debian-vm/blob/master/script/cleanup.sh
+# From https://github.com/boxcutter/debian/blob/master/script/cleanup.sh
 
 CLEANUP_PAUSE=${CLEANUP_PAUSE:-0}
 echo "==> Pausing for ${CLEANUP_PAUSE} seconds..."
 sleep ${CLEANUP_PAUSE}
+
+# Unique SSH keys will be generated on first boot
+echo "==> Removing SSH server keys"
+rm -f /etc/ssh/*_key*
+
+# Unique machine ID will be generated on first boot
+echo "==> Removing machine ID"
+rm -f /etc/machine-id
+rm -f /var/lib/dbus/machine-id
 
 # Make sure Udev doesn't block our network
 # http://6.ptmc.org/?p=164
@@ -34,7 +43,8 @@ rm -f /root/.bash_history
 rm -f /home/vagrant/.bash_history
 
 # Clean up log files
-find /var/log -type f | while read f; do echo -ne '' > $f; done;
+echo "==> Purging log files"
+find /var/log -type f -delete
 
 # Skipping the whiteout part from box-cutter -- which would just fill up the qcow2 image
 

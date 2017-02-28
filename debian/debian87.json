@@ -1,0 +1,60 @@
+{
+    "variables": {
+        "user": "admindebian",
+        "password": "admindebian",
+        "disk_size": "100000",
+        "domain": ""
+    },
+
+    "builders": [
+        {
+            "name": "debian87",
+
+            "type": "qemu",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "disk_size": "{{ user `disk_size` }}",
+
+            "iso_url": "http://cdimage.debian.org/debian-cd/8.7.1/amd64/iso-cd/debian-8.7.1-amd64-netinst.iso",
+            "iso_checksum": "749a15b7690769dd99e85d6104182a03d370b04b36106ec7cfaf6a551aa89fb4",
+            "iso_checksum_type": "sha256",
+
+            "http_directory": "http",
+
+            "ssh_username": "{{ user `user` }}",
+            "ssh_password": "{{ user `password` }}",
+            "shutdown_command": "echo '{{ user `password` }}' | sudo -S shutdown -h now",
+
+            "ssh_wait_timeout": "60m",
+
+            "boot_wait": "2s",
+            "boot_command": [
+                   "<esc><wait><wait>",
+                   "install ",
+
+                   "auto=true ",
+                   "priority=critical ",
+                   "interface=auto ",
+                   "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+                   "preseed/url/checksum=45ced8a80f86ceb26104c88800c1e1fa ",
+
+                   "passwd/user-fullname={{ user `user` }} ",
+                   "passwd/user-password={{ user `password` }} ",
+                   "passwd/user-password-again={{ user `password` }} ",
+                   "passwd/username={{ user `user` }} ",
+
+                   "<enter>"
+            ]
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "execute_command": "echo '{{ user `password` }}' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
+            "scripts": [
+                "scripts/cleanup.sh"
+            ]
+        }
+    ]
+}
