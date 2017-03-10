@@ -36,7 +36,6 @@
                    "priority=critical ",
                    "interface=auto ",
                    "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-                   "preseed/url/checksum=45ced8a80f86ceb26104c88800c1e1fa ",
 
                    "passwd/user-fullname={{ user `user` }} ",
                    "passwd/user-password={{ user `password` }} ",
@@ -53,6 +52,8 @@
             "type": "shell",
             "execute_command": "echo '{{ user `password` }}' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
             "scripts": [
+                "scripts/update.sh",
+                "scripts/packages.sh",
                 "scripts/cleanup.sh"
             ]
         }
