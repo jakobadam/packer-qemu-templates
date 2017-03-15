@@ -29,12 +29,12 @@ Templates names that ends with vagrant automatically creates a vagrant box.
 Add the box to Vagrant
 
 ```bash
-$ vagrant box add windows-2012-R2-standard.box --name windows-2012-R2-standard
+$ vagrant box add box/windows-2012-R2-standard.box --name windows-2012-R2-standard
 ```
 
 Init vagrantfile
 ```
-$ mkdir project & cd $_
+$ mkdir project && cd $_
 $ vagrant init windows-2012-R2-standard
 ```
 
