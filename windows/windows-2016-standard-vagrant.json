@@ -1,6 +1,7 @@
 {
     "variables": {
-        "disk_size": "61440"
+        "disk_size": "61440",
+        "headless": "true"
     },
 
     "builders": [
@@ -10,7 +11,7 @@
             "type": "qemu",
             "format":"qcow2",
             "accelerator": "kvm",
-            "headless": "true",
+            "headless": "{{ user `headless`}}",
 
             "disk_size": "{{ user `disk_size`}}",
             "disk_interface":"virtio",
