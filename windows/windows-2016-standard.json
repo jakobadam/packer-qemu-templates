@@ -11,6 +11,7 @@
             "type": "qemu",
             "format":"qcow2",
             "accelerator": "kvm",
+            "headless": "true",
 
             "disk_size": "{{ user `disk_size`}}",
             "disk_interface":"virtio",
