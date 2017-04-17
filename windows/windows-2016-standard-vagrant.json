@@ -61,9 +61,9 @@
     "post-processors": [
         {
             "keep_input_artifact": false,
-            "output": "box/windows-2012-R2-standard.box",
+            "output": "box/windows-2016-standard.box",
             "type": "vagrant",
-            "vagrantfile_template": "vagrantfile-windows-2012-R2-standard.template"
+            "vagrantfile_template": "vagrantfile-windows-2016-standard.template"
         }
     ]
 }
