@@ -1,0 +1,10 @@
+{
+  "_comment": "Build with `packer build -var-file=windows-2016-standard.json windows-vagrant.json`",
+  "vm_name": "windows-2016",
+  "iso_checksum_type": "md5",
+  "iso_checksum": "18a4f00a675b0338f3c7c93c4f131beb",
+  "iso_url": "http://download.microsoft.com/download/1/6/F/16FA20E6-4662-482A-920B-1A45CF5AAE3C/14393.0.160715-1616.RS1_RELEASE_SERVER_EVAL_X64FRE_EN-US.ISO",
+  "version" : "1",
+  "vagrantfile_template" : "vagrantfile-windows-2016-standard.template",
+  "floppy_files_list" : "floppy/drivers/virtio-win-0.1.135/viostor/2k16/amd64/*,floppy/drivers/virtio-win-0.1.135/NetKVM/2k16/amd64/*,floppy/common/*,floppy/windows-2016-standard/*"
+}

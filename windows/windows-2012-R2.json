@@ -1,0 +1,14 @@
+{
+  "_comment": "Build with `packer build -var-file=windows-2012-R2-standard.json windows-vagrant.json`",
+  "vm_name": "windows-2012-R2-standard",
+  "iso_url": "http://care.dlservice.microsoft.com/dl/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_SERVER_EVAL_EN-US-IR3_SSS_X64FREE_EN-US_DV9.ISO",
+  "iso_checksum_type": "md5",
+  "iso_checksum": "5b5e08c490ad16b59b1d9fab0def883a",
+  "preseed" : "windows-2012-R2-standard/*",
+  "version" : "1",
+  "vagrantfile_template" : "vagrantfile-windows-2012-R2-standard.template",
+
+  "_todo" : "It doesn't pick up the drivers when it's version 0.1.135...",
+
+  "floppy_files_list": "floppy/drivers/virtio-win-0.1.117/viostor/2k12R2/amd64/*,floppy/drivers/virtio-win-0.1.117/NetKVM/2k12R2/amd64/*,floppy/common/*,floppy/windows-2012-R2-standard/*"
+}
