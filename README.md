@@ -10,7 +10,7 @@ configured to let Packer create a Vagrant box through the libvirt
 post-processor.
 
 More info:
-http://blog.aarhusworks.com/unattended-installation-of-vm-images-with-packer/
+https://aarhusworks.com/2014/08/26/unattended-installation-of-vm-images-with-packer.html
 
 ## Status
 
