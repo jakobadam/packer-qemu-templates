@@ -38,6 +38,9 @@
       "vm_name": "{{ user `vm_name` }}",
       "qemuargs": [
         [ "-m", "{{ user `memory` }}" ],
+        [ "-display", "none" ],
+        [ "-machine", "accel=kvm" ],
+        [ "-cpu", "host" ],
         [ "-smp", "cpus={{ user `cpus`}}"]
       ]
     }
@@ -60,6 +63,7 @@
       "scripts": [
         "scripts/vagrant.sh",
         "scripts/sshd.sh",
+        "scripts/update.sh",
         "scripts/packages.sh",
         "scripts/cleanup.sh"
       ],
@@ -92,7 +96,7 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": "true",
+    "update": "false",
     "vagrantfile_template": "",
     "version": "0.1.0",
     "vm_name": "ubuntu1604"
