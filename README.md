@@ -1,3 +1,6 @@
+**NOTE: The templates are mostly unmaintained. I do, however, merge MRs. 
+Reach out if you interested in taking over. Kind regards, Jakob**
+
 ## Introduction
 
 The packer-qemu-templates provides Packer templates for unattended
